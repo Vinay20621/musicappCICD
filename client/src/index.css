@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.main
+{
+    width: 90vw;
+    
+}
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotated{
+    animation: rotate 3s linear infinite; 
+  }
+@media only screen and (max-width: 600px) {
+    .main
+    {
+        width: 90vw;
+    }
+  }
