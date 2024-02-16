@@ -58,8 +58,8 @@ jobs:
           IMAGE_TAG: latest
         run: |
           # Build Docker images defined in docker-compose.yml
-          docker-compose -f /path/to/your/docker-compose.yml build
-          docker-compose -f /path/to/your/docker-compose.yml push
+          docker-compose -f ./docker-compose.yml build
+          docker-compose -f ./docker-compose.yml push
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
   Continuous-Deployment:
@@ -75,15 +75,15 @@ jobs:
 
       - name: Pull latest images
         run: |
-          docker-compose -f /path/to/your/docker-compose.yml pull
+          docker-compose -f ./docker-compose.yml pull
 
       - name: Stop and remove container if running
         run: |
-          docker-compose -f /path/to/your/docker-compose.yml down --remove-orphans
+          docker-compose -f ./docker-compose.yml down --remove-orphans
 
       - name: Run Docker Compose
         run: |
-          docker-compose -f /path/to/your/docker-compose.yml up -d
+          docker-compose -f ./docker-compose.yml up -d
 
       - name: Clean previous images and containers
         run: |
